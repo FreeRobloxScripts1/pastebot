@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastebot</title>
+    <style>
+        @font-face {
+            font-family: 'ABC Ginto Nord Unlicensed Trial';
+            font-style: normal;
+            font-weight: 800;
+            src: url('https://fonts.cdnfonts.com/s/105003/ABCGintoNord-Black-Trial-BF651b7b7719b0f.woff') format('woff');
+        }
+
+        body {
+            background-color: #5865f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            font-family: 'ABC Ginto Nord Unlicensed Trial', sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        img {
+            max-width: 60%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function updateDots() {
+            const h3 = document.querySelector('h3');
+            const currentText = h3.innerText;
+            const dotsCount = (currentText.match(/\./g) || []).length;
+            const newDots = '.'.repeat((dotsCount + 1) % 4);
+            h3.innerText = "Inviting Bot" + newDots;
+            
+            if (dotsCount === 3) {
+                setTimeout(function() {
+                    window.location.href = "https://discord.com/oauth2/authorize?client_id=1233709068481204274&scope=bot%20applications.commands&permissions=2146958847";
+                }, 3000);
+            }
+        }
+        
+        setInterval(updateDots, 1000);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Pastebot Logo">
+        <h3>Inviting Bot</h3>
+    </div>
+</body>
+</html>
